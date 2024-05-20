@@ -26,7 +26,7 @@ public class Shop : MonoBehaviour
     public DamageAdder dmgAdder;
     public Vampirism vamp;
     [SerializeField] public TextMeshProUGUI DmgAdderCost;
-    [SerializeField] public TextMeshProUGUI FirstItemBoostText;
+    [SerializeField] public Text FirstItemBoostText;
     [SerializeField] public TextMeshProUGUI AcCost;
     [SerializeField] public TextMeshProUGUI AcTier;
     public SoundEffectsPlayer sfxPlayer;
@@ -66,7 +66,7 @@ public class Shop : MonoBehaviour
         dmgDoubler = GameObject.Find("DamageDoubler").GetComponent<DamageDoubler>();
         dmgAdder = GameObject.Find("DamageAdder").GetComponent<DamageAdder>();
         vamp = GameObject.Find("Vampirism").GetComponent<Vampirism>();
-        FirstItemBoostText = GameObject.Find("dmgAdderTier").GetComponent<TextMeshProUGUI>();
+        FirstItemBoostText = GameObject.Find("dmgTier").GetComponent<Text>();
         AcCost = GameObject.Find("acCostValue").GetComponent<TextMeshProUGUI>();
         AcTier = GameObject.Find("acTierValue").GetComponent<TextMeshProUGUI>();
         DmgAdderCost = GameObject.Find("dmgAdderCostValue").GetComponent<TextMeshProUGUI>();
@@ -207,7 +207,6 @@ public class Shop : MonoBehaviour
                     AcCost.text = $"{autoclicker.price}";
                     AcTier.text = $"{autoclicker.quantity}";
 
-                    FirstItemBoostText.text = $"boost: {autoclicker.quantity}.";
                     Debug.Log($"autoclicker quantity: {autoclicker.quantity}.");
                     autoclicker.Apply();
                     cloudSaving.MySave();
