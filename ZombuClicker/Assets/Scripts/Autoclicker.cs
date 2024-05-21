@@ -14,6 +14,8 @@ public class Autoclicker : Item
     public void Start()
     {
         zombie = GameObject.Find("Zombu").GetComponent<Zombie>();
+
+        if(isOwned == true) Apply();
     }
 
     public override void Apply()

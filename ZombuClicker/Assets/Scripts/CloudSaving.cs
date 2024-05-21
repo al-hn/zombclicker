@@ -15,6 +15,7 @@ public class CloudSaving : MonoBehaviour
     public DamageAdder damageAdder;
     public Vampirism vampirism;
     public BaseHPValue baseHPValue;
+    public Weapon weapon;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class CloudSaving : MonoBehaviour
         damageAdder = GameObject.Find("DamageAdder").GetComponent<DamageAdder>();
         vampirism = GameObject.Find("Vampirism").GetComponent<Vampirism>();
         baseHPValue = GameObject.Find("Base HP Text").GetComponent<BaseHPValue>();
+        weapon = GameObject.Find("Weapon").GetComponent<Weapon>();
 
         if(YandexGame.SDKEnabled == true)
         {
@@ -57,6 +59,23 @@ public class CloudSaving : MonoBehaviour
         zombie.jnbHealth = YandexGame.savesData.jnbHealth;
         zombie.jnzwaHealth = YandexGame.savesData.jnzwaHealth;
         zombie.jnszHealth = YandexGame.savesData.jnszHealth;
+
+        // damage adder
+        weapon.damage = YandexGame.savesData.weaponDamage;
+        damageAdder.quantity = YandexGame.savesData.damageAdderQuantity;
+
+        // vamp
+        zombie.HPRegenBase = YandexGame.savesData.zombieHPRegenBase;
+
+        // shield
+        baseHPValue.Armor = YandexGame.savesData.baseHPValueArmor;
+
+        // heal
+        baseHPValue.BaseHealth = YandexGame.savesData.baseHPValue;
+
+        // autoclicker
+        autoclicker.quantity = YandexGame.savesData.autoclickerQuantity;
+        autoclicker.damage = YandexGame.savesData.autoclickerDamage;
     }
 
     public void MySave()
@@ -79,6 +98,30 @@ public class CloudSaving : MonoBehaviour
         YandexGame.savesData.jnbHealth = zombie.jnbHealth;
         YandexGame.savesData.jnzwaHealth = zombie.jnzwaHealth;
         YandexGame.savesData.jnszHealth = zombie.jnszHealth;
+
+        // damage adder
+        YandexGame.savesData.weaponDamage = weapon.damage;
+        YandexGame.savesData.damageAdderQuantity = damageAdder.quantity;
+
+        // vampirism
+        YandexGame.savesData.zombieHPRegenBase = zombie.HPRegenBase;
+
+        // shield
+        YandexGame.savesData.baseHPValueArmor = baseHPValue.Armor;
+
+        // heal
+        YandexGame.savesData.baseHPValue = baseHPValue.BaseHealth;
+
+        // fire is developed so it'll check if its owned on start
+
+        // autoclicker is also checked on start
+        YandexGame.savesData.autoclickerQuantity = autoclicker.quantity;
+        YandexGame.savesData.autoclickerDamage = autoclicker.damage;
+
+        // damage doubler
+
+
+
         YandexGame.SaveProgress();
     }
 
@@ -102,5 +145,10 @@ public class CloudSaving : MonoBehaviour
         zombie.jnszHealth = 600;
         baseHPValue.BaseHealth = 100;
         baseHPValue.Armor = 30;
+
+        weapon.damage = 5;
+        damageAdder.quantity = 0;
+        autoclicker.quantity = 0;
+        autoclicker.damage = 1;
     }
 }

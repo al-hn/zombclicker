@@ -1,2 +1,2 @@
-Build path: C:/Users/nural/OneDrive/Рабочий стол/ZombuTosnoFinal
-Build number: 35
+Build path: C:/Users/Alihan/Desktop/Новая папка
+Build number: 36

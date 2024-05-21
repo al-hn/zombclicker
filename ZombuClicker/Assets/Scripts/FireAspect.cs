@@ -10,6 +10,8 @@ public class FireAspect : Item
     public void Start()
     {
         weapon = GameObject.Find("Weapon").GetComponent<Weapon>();
+
+        if (isOwned == true) Apply();
     }
 
     public override void Apply()

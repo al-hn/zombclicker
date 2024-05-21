@@ -28,6 +28,14 @@ namespace YG
         public int jnbHealth = 10000;
         public int jnzwaHealth = 500;
         public int jnszHealth = 600;
+
+        public int weaponDamage = 5;
+        public int damageAdderQuantity = 0;
+        public int zombieHPRegenBase = 3;
+        public int baseHPValueArmor = 30;
+        public int baseHPValue = 100;
+        public int autoclickerQuantity = 0;
+        public int autoclickerDamage = 1;
         public string newPlayerName = "Hello!";
         public bool[] openLevels = new bool[3];
 
